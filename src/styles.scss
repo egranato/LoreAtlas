@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import "node_modules/reset-css/sass/_reset.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  overflow-y: auto;
+  font-family: "Roboto Serif", serif;
+}
