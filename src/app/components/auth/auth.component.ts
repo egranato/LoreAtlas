@@ -8,6 +8,8 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthComponent implements OnInit {
   public googleOAuthUrl: string;
+  public facebookOAuthUrl: string;
+
   private googleScopes = [
     'https://www.googleapis.com/auth/userinfo.profile',
     'https://www.googleapis.com/auth/userinfo.email',
@@ -15,6 +17,7 @@ export class AuthComponent implements OnInit {
 
   constructor() {
     this.googleOAuthUrl = this.createGoogleOAuthUrl();
+    this.facebookOAuthUrl = '';
   }
 
   ngOnInit(): void {}

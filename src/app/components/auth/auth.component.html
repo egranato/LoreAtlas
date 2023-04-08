@@ -1,5 +1,22 @@
-<div>
-  <div>
-    <a [href]="googleOAuthUrl">Login With Google</a>
+<div class="container">
+  <div class="cloud-cover">
+    <img src="/assets/images/clouds.svg" alt="Clouds" />
+    <img src="/assets/images/clouds.svg" alt="Clouds" />
+  </div>
+  <div class="login-box">
+    <div class="header">
+      <img src="/assets/images/la-logo.svg" alt="Lore Atlas Logo" />
+      <h1>Lore Atlas</h1>
+    </div>
+    <a class="social-link" [href]="googleOAuthUrl">
+      <i class="fa-brands fa-google"></i>
+      <p>Google</p>
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
+    <a class="social-link" [href]="facebookOAuthUrl">
+      <i class="fa-brands fa-facebook"></i>
+      <p>Facebook</p>
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
   </div>
 </div>
