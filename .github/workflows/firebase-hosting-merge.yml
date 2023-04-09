@@ -11,7 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: echo ${{secrets.FONTAWESOME_NPM_AUTH_TOKEN }} | sed 's/./& /g' && npm ci FONTAWESOME_NPM_AUTH_TOKEN=${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }} && npm run build
+      - name: Install Dependencies
+        run: |
+          npm config set //npm.fontawesome.com/:_authToken=${FONTAWESOME_NPM_AUTH_TOKEN}
+          npm ci
+        env:
+          FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
+      - name: Build Application
+        run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
