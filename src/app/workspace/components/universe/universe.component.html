@@ -30,14 +30,14 @@
   </h1>
   <ul>
     <li
-      class="glass"
+      class="btn"
       *ngFor="let universe of universes"
       (click)="selectUniverse(universe)"
     >
       <p>{{ universe.title }}</p>
       <i class="fa-solid fa-sparkles"></i>
     </li>
-    <li class="glass" (click)="newUniverse()">
+    <li class="btn" (click)="newUniverse()">
       <p>Create a new Universe</p>
       <i class="fa-solid fa-plus"></i>
     </li>
