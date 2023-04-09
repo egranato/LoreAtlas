@@ -1,4 +1,10 @@
-<nav></nav>
 <main>
   <router-outlet></router-outlet>
 </main>
+<nav [class.open]="menuOpen" *ngIf="dataStore.activeUniverse">
+  <div class="toggle" (click)="menuOpen = !menuOpen">
+    <div class="bar first"></div>
+    <div class="bar second"></div>
+    <div class="bar third"></div>
+  </div>
+</nav>

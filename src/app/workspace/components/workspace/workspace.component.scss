@@ -1,0 +1,81 @@
+@import "../../../../styles/_colors";
+@import "../../../../styles/_breakpoints";
+
+nav {
+  box-sizing: border-box;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 65px;
+  width: 65px;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+  backdrop-filter: blur(10px);
+  background-color: rgba(70, 62, 62, 0.13);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+
+  .toggle {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 45px;
+    height: 45px;
+    transition: 0.3s ease-out;
+
+    .bar {
+      position: absolute;
+      background-color: $white;
+      height: 3px;
+      width: 70%;
+      left: 15%;
+      transition: 0.3s ease-out;
+    }
+
+    .bar:nth-child(1) {
+      top: 10px;
+    }
+
+    .bar:nth-child(2) {
+      top: 21px;
+    }
+
+    .bar:nth-child(3) {
+      top: 33px;
+    }
+  }
+}
+
+nav.open {
+  height: 100%;
+  width: 100%;
+  border-radius: 0;
+  top: 0;
+  left: 0;
+
+  .toggle {
+    top: 20px;
+    left: 20px;
+
+    .bar:nth-child(1),
+    .bar:nth-child(3) {
+      top: 22px;
+      transform: rotate(45deg);
+    }
+
+    .bar:nth-child(2) {
+      top: 22px;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+main {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: $black;
+}

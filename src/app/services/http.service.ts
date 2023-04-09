@@ -12,4 +12,8 @@ export class HttpService {
   public get<T>(url: string, options?: Object): Observable<T> {
     return this.http.get<T>(`${environment.apiUrl}/${url}`, options);
   }
+
+  public post<T>(url: string, body: any, options?: Object): Observable<T> {
+    return this.http.post<T>(`${environment.apiUrl}/${url}`, body, options);
+  }
 }
