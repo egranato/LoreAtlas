@@ -1,10 +1,46 @@
 <main>
   <router-outlet></router-outlet>
 </main>
-<nav [class.open]="menuOpen" *ngIf="dataStore.activeUniverse">
+<nav [class.open]="!menuOpen" *ngIf="dataStore.activeUniverse">
   <div class="toggle" (click)="menuOpen = !menuOpen">
     <div class="bar first"></div>
     <div class="bar second"></div>
     <div class="bar third"></div>
+  </div>
+  <div class="links">
+    <button class="btn buffer" (click)="navigateTo('')">
+      <i class="fa-thin fa-chart-simple"></i>
+      <p>Overview</p>
+    </button>
+    <button class="btn" (click)="navigateTo('characters')">
+      <i class="fa-thin fa-user-shakespeare"></i>
+      <p>Characters</p>
+    </button>
+    <button class="btn" (click)="navigateTo('places')">
+      <i class="fa-thin fa-fort"></i>
+      <p>Places</p>
+    </button>
+    <button class="btn" (click)="navigateTo('items')">
+      <i class="fa-thin fa-swords"></i>
+      <p>Items</p>
+    </button>
+    <button class="btn" (click)="navigateTo('groups')">
+      <i class="fa-thin fa-people-group"></i>
+      <p>Groups</p>
+    </button>
+    <button class="btn" (click)="navigateTo('events')">
+      <i class="fa-thin fa-calendar-exclamation"></i>
+      <p>Events</p>
+    </button>
+    <button class="btn" (click)="navigateTo('narratives')">
+      <i class="fa-thin fa-books"></i>
+      <p>Narratives</p>
+    </button>
+  </div>
+  <div class="user" (click)="navigateToUserSettings()">
+    <div class="icon glass">
+      <i class="fa-light fa-user-tie"></i>
+    </div>
+    <p>{{ dataStore.currentUser?.name }}</p>
   </div>
 </nav>

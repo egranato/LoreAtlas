@@ -6,12 +6,8 @@ import { Universe } from '../models/universe.models';
   providedIn: 'root',
 })
 export class DataStoreService {
-  private currentUser: User | null = null;
+  public currentUser: User | null = null;
   public activeUniverse: Universe | null = null;
 
   constructor() {}
-
-  setCurrentUser(user: User): void {
-    this.currentUser = user;
-  }
 }

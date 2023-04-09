@@ -12,7 +12,6 @@ import { HttpService } from 'src/app/services/http.service';
 })
 export class WorkspaceComponent implements OnInit {
   public menuOpen: boolean = false;
-  public universes = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -32,9 +31,24 @@ export class WorkspaceComponent implements OnInit {
         this.router.navigate([], { relativeTo: this.route, queryParams: {} });
       }
     });
+    this.router.events.subscribe((_) => (this.menuOpen = false));
   }
 
   ngOnInit(): void {
-    this.http.get<User>('users').subscribe(this.dataStore.setCurrentUser);
+    this.http
+      .get<User>('users')
+      .subscribe((user) => (this.dataStore.currentUser = user));
+  }
+
+  navigateToUserSettings(): void {
+    this.router.navigate(['workspace', 'user']);
+  }
+
+  navigateTo(entity: string): void {
+    this.router.navigate([
+      'workspace',
+      this.dataStore.activeUniverse?.id,
+      entity,
+    ]);
   }
 }

@@ -1,5 +1,4 @@
 @import "../../../../styles/_colors";
-@import "../../../../styles/_breakpoints";
 
 nav {
   box-sizing: border-box;
@@ -45,14 +44,86 @@ nav {
       top: 33px;
     }
   }
+
+  .links {
+    position: relative;
+    width: 100%;
+    padding: 25px;
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    flex-direction: column;
+    align-items: center;
+
+    button.btn {
+      position: relative;
+      width: 100%;
+      justify-content: flex-start;
+      color: $white;
+      text-decoration: none;
+      margin: 10px 0;
+      font-weight: 500;
+
+      i {
+        margin-right: 15px;
+      }
+    }
+
+    button.btn.buffer {
+      margin-bottom: 50px;
+    }
+  }
+
+  .user {
+    width: 100%;
+    padding: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: none;
+    align-items: center;
+    color: $white;
+
+    .icon {
+      margin-right: 15px;
+      border-radius: 50%;
+      overflow: hidden;
+      height: 50px;
+      width: 50px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+
+      i {
+        font-size: 40px;
+      }
+    }
+
+    p {
+      font-size: 25px;
+    }
+  }
+
+  .user:hover {
+    cursor: pointer;
+
+    .icon.glass {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  }
 }
 
 nav.open {
   height: 100%;
-  width: 100%;
+  width: 408px;
   border-radius: 0;
   top: 0;
   left: 0;
+
+  .links {
+    display: flex;
+  }
 
   .toggle {
     top: 20px;
@@ -68,6 +139,10 @@ nav.open {
       top: 22px;
       transform: rotate(-45deg);
     }
+  }
+
+  .user {
+    display: flex;
   }
 }
 
