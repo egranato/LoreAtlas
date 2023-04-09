@@ -1,0 +1,41 @@
+@import "../../../../styles/_colors";
+
+#universe {
+  position: absolute;
+  top: -345px;
+  left: calc(50% - 310px);
+  height: 620px;
+  width: 620px;
+  border-radius: 35%;
+  overflow: hidden;
+  animation-name: spin;
+  animation-duration: 60s;
+  animation-iteration-count: infinite;
+}
+
+.cls-1 {
+  opacity: 0.4;
+}
+
+.cls-1,
+.cls-2 {
+  fill: $white;
+}
+
+@media screen and (orientation: landscape) {
+  #universe {
+    height: 800px;
+    width: 800px;
+    left: calc(100% - 400px);
+    top: -400px;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}

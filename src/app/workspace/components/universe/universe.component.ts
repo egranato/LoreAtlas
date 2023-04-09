@@ -7,7 +7,7 @@ import { HttpService } from 'src/app/services/http.service';
 @Component({
   selector: 'la-universe',
   templateUrl: './universe.component.html',
-  styleUrls: ['./universe.component.scss'],
+  styleUrls: ['./shared.scss', './universe.component.scss'],
 })
 export class UniverseComponent implements OnInit {
   public universes: Array<Universe> = [];

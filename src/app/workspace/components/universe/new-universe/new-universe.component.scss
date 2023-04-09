@@ -8,11 +8,12 @@
   height: 100%;
   width: 100%;
   color: $white;
-  padding: 10%;
   overflow-y: auto;
+  overflow-x: hidden;
 
   .content {
-    width: 100%;
+    width: 80%;
+    max-width: 800px;
     padding: 15px;
     position: relative;
     box-sizing: border-box;
@@ -20,12 +21,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    h1 {
-      font-size: 30px;
-      font-weight: bold;
-      margin: 15px;
-    }
 
     p {
       text-align: center;
@@ -49,5 +44,11 @@
         color: $white;
       }
     }
+  }
+}
+
+@media screen and (orientation: landscape) {
+  #universe {
+    left: calc(0% - 400px);
   }
 }

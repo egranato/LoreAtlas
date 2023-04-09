@@ -8,13 +8,7 @@
   justify-content: center;
   height: 100%;
   width: 100%;
-
-  h1 {
-    color: $white;
-    font-size: 25px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
+  color: $white;
 
   ul {
     width: 100%;
@@ -28,12 +22,12 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: $white;
       width: 65%;
       box-sizing: border-box;
       padding: 15px 0;
       border-radius: 5px;
       margin: 15px 0;
+      cursor: pointer;
 
       p {
         max-width: 100%;
@@ -50,6 +44,20 @@
       i {
         margin-top: 15px;
       }
+    }
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .container ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    li {
+      width: auto;
+      min-width: 200px;
+      margin: 0 10px;
+      padding: 15px;
     }
   }
 }

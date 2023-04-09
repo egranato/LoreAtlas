@@ -77,8 +77,9 @@ button {
   font-weight: 600;
   font-size: 22.5px;
   border-radius: 2px;
-  background-color: rgba(255, 255, 255, 0.1);
   cursor: pointer;
+
+  @extend .glass;
 }
 
 .btn:hover {
@@ -89,4 +90,10 @@ button {
 .btn:disabled {
   opacity: 0.5;
   cursor: default;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 15px;
 }

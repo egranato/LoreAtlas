@@ -7,7 +7,7 @@ import { HttpService } from 'src/app/services/http.service';
 @Component({
   selector: 'la-new-universe',
   templateUrl: './new-universe.component.html',
-  styleUrls: ['./new-universe.component.scss'],
+  styleUrls: ['../shared.scss', './new-universe.component.scss'],
 })
 export class NewUniverseComponent {
   universeForm: UntypedFormGroup;
