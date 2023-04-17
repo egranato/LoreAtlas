@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Universe } from 'src/app/models/universe.models';
-import { DataStoreService } from 'src/app/services/data-store.service';
 import { HttpService } from 'src/app/services/http.service';
+import { DataStoreService } from 'src/app/workspace/services/data-store.service';
 
 @Component({
   selector: 'la-dashboard',
@@ -17,12 +17,13 @@ export class DashboardComponent {
   ) {
     this.activatedRoute.params.subscribe((params) => {
       const universeId = params['id'];
+      const activeUniverse = this.dataStore.getActiveUniverse();
 
-      if (this.dataStore.activeUniverse?.id !== universeId) {
+      if (activeUniverse.id !== universeId) {
         this.http
           .get<Universe>(`universes/${universeId}`)
           .subscribe((universe) => {
-            this.dataStore.activeUniverse = universe;
+            this.dataStore.setActiveUniverse(universe);
           });
       }
     });

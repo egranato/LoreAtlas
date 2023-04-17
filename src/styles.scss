@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-@import "node_modules/reset-css/sass/_reset.scss";
+@import "node_modules/reset-css/sass/_reset";
 @import "node_modules/@fortawesome/fontawesome-pro/css/all.min.css";
+@import "./styles/_colors";
 
 * {
   box-sizing: border-box;
@@ -57,6 +58,14 @@ body {
     border: none;
     padding: 15px 20px;
     outline: none;
+    color: $white;
+  }
+
+  input:disabled,
+  select:disabled,
+  textarea:disabled {
+    cursor: default;
+    background-color: transparent;
   }
 
   textarea {
@@ -78,11 +87,12 @@ button {
   font-size: 22.5px;
   border-radius: 2px;
   cursor: pointer;
+  color: $white;
 
   @extend .glass;
 }
 
-.btn:hover {
+.btn:hover:not(:disabled) {
   border-radius: 0;
   background-color: rgba(255, 255, 255, 0.2);
 }

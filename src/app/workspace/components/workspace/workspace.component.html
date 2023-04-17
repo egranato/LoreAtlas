@@ -1,7 +1,7 @@
 <main>
   <router-outlet></router-outlet>
 </main>
-<nav [class.open]="!menuOpen" *ngIf="dataStore.activeUniverse">
+<nav [class.open]="menuOpen" *ngIf="dataStore.activeUniverse">
   <div class="toggle" (click)="menuOpen = !menuOpen">
     <div class="bar first"></div>
     <div class="bar second"></div>
@@ -41,6 +41,6 @@
     <div class="icon glass">
       <i class="fa-light fa-user-tie"></i>
     </div>
-    <p>{{ dataStore.currentUser?.name }}</p>
+    <p>{{ (dataStore.activeUser | async)?.name }}</p>
   </div>
 </nav>

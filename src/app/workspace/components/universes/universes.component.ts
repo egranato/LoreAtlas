@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Universe } from 'src/app/models/universe.models';
-import { DataStoreService } from 'src/app/services/data-store.service';
 import { HttpService } from 'src/app/services/http.service';
+import { DataStoreService } from 'src/app/workspace/services/data-store.service';
 
 @Component({
   selector: 'la-universe',
@@ -19,7 +19,7 @@ export class UniverseComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.dataStore.activeUniverse = null;
+    this.dataStore.setActiveUniverse(new Universe());
 
     this.http
       .get<Array<Universe>>('universes')
@@ -31,7 +31,7 @@ export class UniverseComponent implements OnInit {
   }
 
   public selectUniverse(universe: Universe): void {
-    this.dataStore.activeUniverse = universe;
+    this.dataStore.setActiveUniverse(universe);
     this.router.navigate(['workspace', universe.id]);
   }
 }

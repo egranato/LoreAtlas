@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -15,12 +17,19 @@ export class AuthComponent implements OnInit {
     'https://www.googleapis.com/auth/userinfo.email',
   ];
 
-  constructor() {
+  constructor(private authService: AuthService, private router: Router) {
     this.googleOAuthUrl = this.createGoogleOAuthUrl();
     this.facebookOAuthUrl = '';
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.authService.checkForTokens();
+    const { accessToken, refreshToken } = this.authService.getTokens();
+
+    if (accessToken || refreshToken) {
+      this.router.navigate(['workspace']);
+    }
+  }
 
   private createGoogleOAuthUrl(): string {
     const baseUrl = 'https://accounts.google.com/o/oauth2/v2/auth';

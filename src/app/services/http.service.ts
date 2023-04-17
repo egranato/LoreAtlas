@@ -16,4 +16,8 @@ export class HttpService {
   public post<T>(url: string, body: any, options?: Object): Observable<T> {
     return this.http.post<T>(`${environment.apiUrl}/${url}`, body, options);
   }
+
+  public patch<T>(url: string, body: any, options?: Object): Observable<T> {
+    return this.http.patch<T>(`${environment.apiUrl}/${url}`, body, options);
+  }
 }

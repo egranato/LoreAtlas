@@ -1,0 +1,40 @@
+@import "../../../../styles/_colors";
+@import "../../../../styles/_breakpoints";
+
+.container {
+  color: $white;
+  padding: 5%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+
+  i,
+  h1 {
+    font-size: 50px;
+  }
+}
+
+.basic form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn {
+  margin-top: 15px;
+  height: 75px;
+}
+
+@media screen and (min-width: $large) {
+  .form-group {
+    width: 50%;
+  }
+}

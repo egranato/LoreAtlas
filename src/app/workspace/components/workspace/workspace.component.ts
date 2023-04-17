@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from 'src/app/models/user.models';
+import { IUser } from 'src/app/models/user.models';
 import { AuthService } from 'src/app/services/auth.service';
-import { DataStoreService } from 'src/app/services/data-store.service';
 import { HttpService } from 'src/app/services/http.service';
+import { DataStoreService } from 'src/app/workspace/services/data-store.service';
 
 @Component({
   selector: 'la-workspace',
@@ -12,6 +12,7 @@ import { HttpService } from 'src/app/services/http.service';
 })
 export class WorkspaceComponent implements OnInit {
   public menuOpen: boolean = false;
+  private activeUniverseId: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -32,12 +33,15 @@ export class WorkspaceComponent implements OnInit {
       }
     });
     this.router.events.subscribe((_) => (this.menuOpen = false));
+    this.dataStore.activeUniverse.subscribe(
+      (universe) => (this.activeUniverseId = universe.id)
+    );
   }
 
   ngOnInit(): void {
     this.http
-      .get<User>('users')
-      .subscribe((user) => (this.dataStore.currentUser = user));
+      .get<IUser>('users')
+      .subscribe((user) => this.dataStore.setActiveUser(user));
   }
 
   navigateToUserSettings(): void {
@@ -45,10 +49,6 @@ export class WorkspaceComponent implements OnInit {
   }
 
   navigateTo(entity: string): void {
-    this.router.navigate([
-      'workspace',
-      this.dataStore.activeUniverse?.id,
-      entity,
-    ]);
+    this.router.navigate(['workspace', this.activeUniverseId, entity]);
   }
 }
